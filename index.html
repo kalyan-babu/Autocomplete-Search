@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+	<script src="jquery/jquery.min.js"></script>
+	<script src="bootstrap/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="Ajs/angular.min.js"></script>
+	<link rel="stylesheet" href="Ajs/simple-autocomplete.css">
+	<script  src="Ajs/simple-autocomplete.js"></script>
+	<script  src="Ajs/sample.js"></script>
+</head>
+
+<body>
+
+ <br /> <br /><br /><br /><br/><br/><br/><br/><br/>
+ <div align="center">
+	<h2>Search Engine</h2>
+ </div>
+<div ng-app="sampleApp" ng-controller="SampleCtrl" style="padding: 15px;" align="cneter">
+<div class="container">  
+		<autocomplete  options="datas" 
+						place-holder="Search for countries..."
+						size=small
+						on-select="onSelect" 
+						display-property="name"
+						input-class="form-control"
+						clear-input="false">
+		</autocomplete>
+		<br/><br/>
+<div align="center">
+
+<button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal">Click to View Details</button>
+
+</div>
+  <!-- Modal -->
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog modal-lg">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title" align="center">Details of the Country</h4>
+        </div>
+        <div class="modal-body">
+          <table class="table table-striped">
+		<thead>
+			<tr>
+				<th>Name</th>
+				<th>Currency</th>
+				<th>LastPrice</th>
+				<th>PricingData</th>
+				<th>HighPrice</th>
+				<th>LowPrice</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>{{selectedData.name}}</td>
+				<td>{{selectedData.Currency}}</td>
+				<td>{{selectedData.LastPrice}}</td>
+				<td>{{selectedData.PricingData}}</td>
+				<td>{{selectedData.HighPrice}}</td>
+				<td>{{selectedData.LowPrice}}</td>
+			</tr>
+		</tbody>
+	</table>
+	</div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+       </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+</body>
+</html>
